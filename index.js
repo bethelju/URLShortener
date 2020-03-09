@@ -24,6 +24,7 @@ app.get('/view-db-table', async (req, res) => {
 
 app.post('/shortenUrl', async (req, res) => {
     const shortenedUrl = shortID.generate()
+    console.log(req.body.UrlFull)
     await ShortUrl.create({fullUrl: req.body.UrlFull, short: shortenedUrl})
     res.redirect(`/view-shortUrl/${shortenedUrl}`)
 })
